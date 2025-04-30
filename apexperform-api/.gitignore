@@ -1,0 +1,7 @@
+# Files
+node_modules
+build
+generated
+
+# Enviroment
+.env
