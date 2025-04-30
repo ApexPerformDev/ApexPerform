@@ -2,7 +2,7 @@ import { makeRegisterUseCase } from "@/use-cases/factories/users/make-register-u
 import { FastifyReply, FastifyRequest } from "fastify";
 import { z } from "zod";
 
-export function register(request: FastifyRequest, reply: FastifyReply) {
+export async function register(request: FastifyRequest, reply: FastifyReply) {
   const registerBodtSchema = z.object({
     firstname: z.string(),
     lastname: z.string(),
@@ -15,7 +15,7 @@ export function register(request: FastifyRequest, reply: FastifyReply) {
   const makeUseCase = makeRegisterUseCase()
 
   try {
-    makeUseCase.execute({
+    await makeUseCase.execute({
       firstname,
       lastname,
       email,

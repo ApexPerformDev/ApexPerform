@@ -17,7 +17,7 @@ export class RegisterUseCase {
   constructor(private usersRepository: UsersRepositoryUseCase) {}
 
   async execute({email, firstname, lastname, password}: RegisterUseCaseRequest): Promise<RegisterUseCaseResponse> {
-    const userExist = await this.usersRepository.findUserByEmail(email)
+    const userExist = await this.usersRepository.findOneByEmail(email)
 
     if(userExist){
       throw new Error("User already exists")

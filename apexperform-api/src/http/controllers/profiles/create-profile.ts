@@ -21,7 +21,7 @@ export function createProfile(request: FastifyRequest, reply: FastifyReply) {
       birthdate,
       phone,
       role,
-      user: request.user.sub
+      userId: request.user.sub
     })
     return reply.status(201).send()
   } catch (error) {
