@@ -3,5 +3,6 @@ import { verifyJWT } from "@/http/middlewares/verify-jwt"
 import { FastifyInstance } from "fastify"
 
 export async function userProfiles(app: FastifyInstance) {
-  app.post('/create',{ onRequest: [verifyJWT] }, createProfile)
+  app.addHook('onRequest', verifyJWT)
+  app.post('/create', createProfile)
 }
