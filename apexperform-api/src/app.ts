@@ -9,7 +9,8 @@ import { env } from './env'
 export const app = Fastify()
 
 app.register(cors, {
-
+  origin: '*',
+  credentials: true,
 })
 
 app.register(fastifyJwt, {
