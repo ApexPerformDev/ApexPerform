@@ -23,7 +23,8 @@ model User {
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 
-  profile Profile?
+  meetings Meeting[]
+  profile  Profile?
 
   @@map("users")
 }
@@ -42,4 +43,20 @@ model Profile {
   user_id String @unique
 
   @@map("profiles")
+}
+
+model Meeting {
+  id          String   @id @default(uuid())
+  title       String
+  description String?
+  start_time  DateTime
+  end_time    DateTime
+  created_at  DateTime @default(now())
+  updated_at  DateTime @updatedAt
+
+  // Relação com o usuário
+  user    User   @relation(fields: [user_id], references: [id])
+  user_id String
+
+  @@map("meetings")
 }
