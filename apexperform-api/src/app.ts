@@ -5,6 +5,7 @@ import { userProfiles } from './http/routes/profiles'
 import fastifyJwt from '@fastify/jwt'
 import fastifyCookie from '@fastify/cookie'
 import { env } from './env'
+import { userMeeting } from './http/routes/meetings'
 
 export const app = Fastify()
 
@@ -31,4 +32,7 @@ app.register(userRoutes, {
 })
 app.register(userProfiles, {
   prefix: '/profiles'
+})
+app.register(userMeeting, {
+  prefix: '/meeting'
 })
