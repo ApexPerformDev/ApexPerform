@@ -1,8 +1,21 @@
-import { Prisma } from "generated/prisma";
+import { Prisma, Profile } from "generated/prisma";
 import { ProfilesRepositoryUseCase } from "../profiles-repository";
 import { prisma } from "@/lib/prisma";
 
 export class PrismaProfileRepository implements ProfilesRepositoryUseCase {
+  async findByUserId(userId: string) {
+    const profile = await prisma.profile.findUnique({
+      where: {
+        user_id: userId
+      },
+      include: {
+        user: true
+      } 
+    })
+
+    return profile
+  }
+
   async create(data: Prisma.ProfileCreateInput){
     const profile = await prisma.profile.create({
       data
