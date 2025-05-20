@@ -8,6 +8,6 @@ import Cheking from "./src/screens/cheking/cheking.jsx"
 
 export default function App() {
   return <>
-    <Main />
+    <SingUp />
   </>
 }

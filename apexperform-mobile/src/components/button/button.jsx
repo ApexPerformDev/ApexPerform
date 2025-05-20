@@ -3,7 +3,7 @@ import {styles} from "./button.style.js"
 
 function Button(props){
     function TestClick(){
-        Alert.alert("buttom teste")
+        Alert.alert("")
     }
 
     return  <TouchableOpacity onPress={TestClick} style={[styles.btn, props.theme == "danger" ? styles.danger : styles.primary]}>
