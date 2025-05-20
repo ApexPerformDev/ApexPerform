@@ -1,4 +1,4 @@
-import { Prisma, User } from "generated/prisma"
+import { Prisma } from "generated/prisma"
 import { UsersRepositoryUseCase } from "../users-repository"
 import { prisma } from "@/lib/prisma"
 
@@ -9,9 +9,7 @@ export class PrismaUsersRepository implements UsersRepositoryUseCase {
         id
       }
     })
-    if(!user){
-      return null
-    }
+    
     return user
   }
 
@@ -21,9 +19,7 @@ export class PrismaUsersRepository implements UsersRepositoryUseCase {
         email
       }
     })
-    if(!user){
-      return null
-    }
+
     return user
   }
 
