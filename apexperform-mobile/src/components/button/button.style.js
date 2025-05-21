@@ -19,7 +19,7 @@ export const styles = {
 
     text:{
         color: "#FFFFFF",
-        fonStize: FONT_SIZE.md,
+        fontStize: FONT_SIZE.md,
         textAlign: "center"
     }
 }
