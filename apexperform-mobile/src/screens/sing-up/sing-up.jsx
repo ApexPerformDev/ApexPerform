@@ -68,6 +68,10 @@ function SingUp(){
 
                 <Button text="Acessar" onPress={handleRegister}/>
             </View>
+
+            <View>
+                
+            </View>
         </ImageBackground>
     );
 }
