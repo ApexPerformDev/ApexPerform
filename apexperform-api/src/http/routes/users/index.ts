@@ -9,5 +9,5 @@ export async function userRoutes(app: FastifyInstance) {
   app.post('/register', register)
   app.post('/sessions', authenticate)
   app.patch('/token/refresh', refresh)
-  app.put('/update', {onRequest: verifyJWT}, update)
+  app.put('/update', {preHandler: verifyJWT}, update)
 }
