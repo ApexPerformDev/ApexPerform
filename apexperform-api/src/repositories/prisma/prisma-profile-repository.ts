@@ -3,6 +3,15 @@ import { ProfilesRepositoryUseCase } from "../profiles-repository";
 import { prisma } from "@/lib/prisma";
 
 export class PrismaProfileRepository implements ProfilesRepositoryUseCase {
+  async update(userId: string, data: Prisma.ProfileUpdateInput){
+    const user = await prisma.profile.update({
+      where: {
+        user_id: userId
+      },
+      data
+    })
+    return user
+  }
   async findByUserId(userId: string): Promise<(Profile & { user: User }) | null> {
     const profile = await prisma.profile.findUnique({
       where: {
