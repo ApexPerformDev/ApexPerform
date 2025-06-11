@@ -7,16 +7,16 @@ import api from "../../api/api";
 
 
 function SingUp(){
-    const[firstName, setFirstName] = useState("");
-    const[lastName, setLastName] = useState("");
+    const[firstname, setFirstname] = useState("");
+    const[lastname, setLastname] = useState("");
     const[email, setEmail] = useState("");
     const[password, setPassword] = useState("");
 
     const handleRegister = async () => {
         try {
-            await api.post("/user/register", {
-                firstName,
-                lastName,
+            await api.post("/users/register", {
+                firstname,
+                lastname,
                 email,
                 password
             })
@@ -38,15 +38,15 @@ function SingUp(){
                 <TextInput 
                     placeholder="Nome" 
                     style={styles.LoginBox}
-                    value={firstName}
-                    onChangeText={setFirstName}
+                    value={firstname}
+                    onChangeText={setFirstname}
                 />
 
                 <TextInput 
                     placeholder="Sobrenome" 
                     style={styles.LoginBox}
-                    value={lastName}
-                    onChangeText={setLastName}
+                    value={lastname}
+                    onChangeText={setLastname}
                 />
 
                 <TextInput
