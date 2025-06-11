@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {View, Image, ImageBackground, TextInput} from "react-native";
 import icons from "../../constants/icons.js"
 import {styles} from"./sing-up.style.js";
@@ -7,23 +7,30 @@ import api from "../../api/api";
 
 
 function SingUp(){
-    const[firstname, setFirstname] = useState("");
-    const[lastname, setLastname] = useState("");
+    const[firstname, setFirstName] = useState("");
+    const[lastname, setLastName] = useState("");
     const[email, setEmail] = useState("");
     const[password, setPassword] = useState("");
 
     const handleRegister = async () => {
         try {
-            await api.post("/users/register", {
-                firstname,
-                lastname,
-                email,
-                password
-            })
+          const dataUser = {
+            firstname,
+            lastname,
+            email,
+            password
+          
+          }
+
+            const { data } = await api.post("users/register", dataUser)
+
+            console.log("RESPONSE",JSON.stringify(data))
 
             Alert.alert("Sucesso", "Cadastro realizado com sucesso!");
         
     } catch (error){
+      console.log(error.message);
+      
         Alert.alert("Erro", "Não foi possivel cadastrar. Verifique os dados.")
     }
 };
@@ -39,14 +46,14 @@ function SingUp(){
                     placeholder="Nome" 
                     style={styles.LoginBox}
                     value={firstname}
-                    onChangeText={setFirstname}
+                    onChangeText={setFirstName}
                 />
 
                 <TextInput 
                     placeholder="Sobrenome" 
                     style={styles.LoginBox}
                     value={lastname}
-                    onChangeText={setLastname}
+                    onChangeText={setLastName}
                 />
 
                 <TextInput

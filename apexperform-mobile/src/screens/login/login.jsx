@@ -2,7 +2,6 @@ import {View, Image, ImageBackground, TextInput, Alert} from "react-native";
 import icons from "../../constants/icons.js"
 import {styles} from"./login.style.js";
 import Button from "../../components/button/button.jsx";
-import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useState } from "react";
 import api from "../../api/api";
@@ -21,7 +20,7 @@ function Login(){
         }
 
         try {
-            const response = await api.post("/sessions",{
+            const response = await api.post("/users/sessions",{
                 email,
                 password,
             });

@@ -1,11 +1,11 @@
 import Fastify from 'fastify'
 import cors from '@fastify/cors'
-import { userRoutes } from './http/routes/users'
-import { userProfiles } from './http/routes/profiles'
 import fastifyJwt from '@fastify/jwt'
 import fastifyCookie from '@fastify/cookie'
 import { env } from './env'
-import { userMeeting } from './http/routes/meetings'
+import { userRoutes } from './http/controllers/users/routes'
+import { userProfiles } from './http/controllers/profiles/routes'
+import { userMeeting } from './http/controllers/mettings/routes'
 
 export const app = Fastify()
 
